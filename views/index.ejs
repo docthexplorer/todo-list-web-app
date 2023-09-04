@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <div class="title">
+        <h1><%= titleDate %></h1>
+    </div>
+    <div class="items">
+        <div class="item-list">
+            <% if (locals.todoListToday) { %>
+                <ul>
+                    <% todoListToday.forEach((items) => { %>
+                        <li>
+                            <input type="checkbox" id="radioelement" />
+                            <p class="item-element"><%= items %></p>
+                            <hr />
+                        </li>
+                        
+                    <% }) %>
+                </ul>
+            <% } %>
+        </div> 
+        <div class="item-entry" >
+            <form action="/" method="POST">
+                <input class="item-input" type="text" name="NewItem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="list" value="">+</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
